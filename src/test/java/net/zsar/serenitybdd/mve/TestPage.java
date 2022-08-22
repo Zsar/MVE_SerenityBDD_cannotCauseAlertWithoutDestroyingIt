@@ -25,6 +25,14 @@ public class TestPage extends PageObject {
 		);
 	}
 
+	public Performable pushTheButtonLikeAPro() {
+		return Task.where("{0} pushed the button and confirmed the alert using proper Screenplay syntax"
+				, Ensure.that(BUTTON).isDisplayed()
+				, Click.on(BUTTON)
+				, Switch.toAlert().andAccept()
+		);
+	}
+
 	class ClickOnAlert implements Task {
 		@Override
 		public void performAs(final Actor actor) {

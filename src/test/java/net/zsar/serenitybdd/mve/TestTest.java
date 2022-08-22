@@ -22,4 +22,14 @@ public class TestTest {
 				, this.testPage.pushTheButton()
 		);
 	}
+
+	/** reproduces <a href="https://github.com/serenity-bdd/serenity-core/issues/2894">#2894</a> */
+	@Test
+	public void pushTheButtonLikeAPro() {
+		final var actor = Actor.named("Professional").whoCan(BrowseTheWeb.with(this.webDriver));
+		actor.attemptsTo(
+				Open.browserOn(this.testPage)
+				, this.testPage.pushTheButtonLikeAPro()
+		);
+	}
 }

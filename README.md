@@ -1,4 +1,6 @@
-Reproduces https://github.com/serenity-bdd/serenity-core/issues/2470
+Reproduces
+- https://github.com/serenity-bdd/serenity-core/issues/2470
+- https://github.com/serenity-bdd/serenity-core/issues/2894
 
 # Usage
 
@@ -10,6 +12,9 @@ Reproduces https://github.com/serenity-bdd/serenity-core/issues/2470
 1. mvn verify -q
    - should wait for you to attach a debugger
    - should download chromedriver into target folder, if none found (but it seems to find one from idk where on my machine, so it never downloads... - sorry if it does not work)
+   - you may choose the test method to be executed for faster turnaround:
+     - mvn verify -q -Dit.test=TestTest#pushTheButton
+     - mvn verify -q -Dit.test=TestTest#pushTheButtonLikeAPro
 2. prepare breakpoints
    1. enabled in `StepInterceptor.executeTestStepMethod` after `invokeMethod`
    2. disabled in `WebDriverFacade.getScreenshotAs` at `getScreenshotAs`
